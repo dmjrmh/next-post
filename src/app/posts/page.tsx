@@ -21,7 +21,7 @@ const Posts = async () => {
     <div className={styles.bgRed}>Postingan Page</div>
     {posts.map((post) => {
       return (
-        <CardList>
+        <CardList key={post.id}>
           <p className='text-slate-700'>{post.id} - {post.title}</p>
           <p className='text-slate-500'>{post.body}</p>
           <ViewUserButton userId={post.userId}/>
