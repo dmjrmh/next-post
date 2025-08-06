@@ -19,11 +19,15 @@ const Posts = async () => {
   return (
     <>
     <div className={styles.bgRed}>Postingan Page</div>
-    <p>{posts[0].title}</p>
-    <CardList>
-      <p className='text-slate-700'>Hello</p>
-      <i>Hi</i>
-    </CardList>
+    {posts.map((post) => {
+      return (
+        <CardList>
+          <p className='text-slate-700'>{post.id} - {post.title}</p>
+          <p className='text-slate-500'>{post.body}</p>
+          <ViewUserButton userId={post.userId}/>
+        </CardList>
+      )
+    })}
     </>
   )
 }
