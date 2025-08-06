@@ -13,11 +13,14 @@ interface Post {
 }
 
 const Posts = async () => {
-  const response = await fetch(base_url)
+  const response = await fetch(base_url, {
+    cache: 'no-store', // Disable caching to always fetch fresh data
+  })
   const posts: Post[] = await response.json()
 
   return (
     <>
+    <p>Current Time : {new Date().toLocaleTimeString()}</p>
     <div className={styles.bgRed}>Postingan Page</div>
     {posts.map((post) => {
       return (
